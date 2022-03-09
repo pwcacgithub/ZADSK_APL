@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Data Migration Funtion Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFIDM_V2TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFIDM_V2</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFI_ACC_MANUAL_ALLOC_POST</FUNCNAME>
+     <SHORT_TEXT>Accounting: Post Manual Cost Allocation</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>DOC_HEADER</PARAMETER>
+       <TYP>BAPIDOCHDRU12P</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IGNORE_WARNINGS</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIIW-IGNWARN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>DOC_NO</PARAMETER>
+       <TYP>BAPIDOCHDRU12P-DOC_NO</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>DOC_ITEMS</PARAMETER>
+       <DBSTRUCT>BAPIMAITM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>CUSTOMER_FIELDS</PARAMETER>
+       <DBSTRUCT>BAPIEXTC</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>DOC_HEADER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Header Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IGNORE_WARNINGS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Ignore Warnings</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Simulation Parameter</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DOC_NO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DOC_ITEMS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Line Item Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Error Message Table</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CUSTOMER_FIELDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Fields</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_BILLING_SCHEDULE_UPDATE</FUNCNAME>
+     <SHORT_TEXT>Sales Order - Load Billing Plan</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_FPLA</PARAMETER>
+       <DBSTRUCT>FPLAVB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_FPLT</PARAMETER>
+       <DBSTRUCT>FPLTVB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character Field of Length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_FPLA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reference Structure for XFPLA/YFPLA</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_FPLT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reference Structure for XFPLT/YFPLT</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Parameter</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_BUPR_CONTP_CREATE</FUNCNAME>
+     <SHORT_TEXT>Create Contact Person Relationship Address</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>BUSINESSPARTNER</PARAMETER>
+       <DBFIELD>BAPIBUS1006_HEAD-BPARTNER</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CONTACTPERSON</PARAMETER>
+       <DBFIELD>BAPIBUS1006_HEAD-BPARTNER</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VALIDFROMDATE</PARAMETER>
+       <DEFAULT>&apos;00010101&apos;</DEFAULT>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_HEADER-VALIDFROMDATE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VALIDUNTILDATE</PARAMETER>
+       <DEFAULT>&apos;99991231&apos;</DEFAULT>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_HEADER-VALIDUNTILDATE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DEFAULTRELATIONSHIP</PARAMETER>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_HEADER-DEFAULTRELATIONSHIP</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ADDRESSGUID</PARAMETER>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_ADDRESSES-ADDRESSGUID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CENTRALDATA</PARAMETER>
+       <DBFIELD>BAPIBUS1006002_CENTRAL</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ADDRESSDATA</PARAMETER>
+       <DBFIELD>BAPIBUS1006002_ADDRESS</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DUPLICATE_MESSAGE_TYPE</PARAMETER>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006_HEAD-CONTROLDUPLICATEMESSAGE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>BAPIADTEL</PARAMETER>
+       <DBSTRUCT>BAPIADTEL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADFAX</PARAMETER>
+       <DBSTRUCT>BAPIADFAX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADTTX</PARAMETER>
+       <DBSTRUCT>BAPIADTTX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADTLX</PARAMETER>
+       <DBSTRUCT>BAPIADTLX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADSMTP</PARAMETER>
+       <DBSTRUCT>BAPIADSMTP</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADRML</PARAMETER>
+       <DBSTRUCT>BAPIADRML</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADX400</PARAMETER>
+       <DBSTRUCT>BAPIADX400</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADRFC</PARAMETER>
+       <DBSTRUCT>BAPIADRFC</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADPRT</PARAMETER>
+       <DBSTRUCT>BAPIADPRT</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADSSF</PARAMETER>
+       <DBSTRUCT>BAPIADSSF</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADURI</PARAMETER>
+       <DBSTRUCT>BAPIADURI</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIADPAG</PARAMETER>
+       <DBSTRUCT>BAPIADPAG</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPIAD_REM</PARAMETER>
+       <DBSTRUCT>BAPIAD_REM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BAPICOMREM</PARAMETER>
+       <DBSTRUCT>BAPICOMREM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ADDRESSDUPLICATES</PARAMETER>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_ADDR_DUPLICATES</TYP>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>BUSINESSPARTNER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Partner</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTACTPERSON</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contact Person</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALIDFROMDATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Validity Date (Valid From)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALIDUNTILDATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Validity Date (Valid Through)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DEFAULTRELATIONSHIP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Standard Relationship</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ADDRESSGUID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Address</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CENTRALDATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Central Data for Contact Person in Organization</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ADDRESSDATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Address Data for Contact Person in Organization</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DUPLICATE_MESSAGE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Type Control</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Simulation Parameter</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADTEL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Telephone Numbers</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADFAX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Telefax Numbers</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADTTX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Teletex Numbers</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADTLX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Telex Numbers</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADSMTP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-Mail Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADRML</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RML Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADX400</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>X400 Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADRFC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADPRT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>PRT Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADSSF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SSF Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADURI</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>URI Addresses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIADPAG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Pager Numbers</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPIAD_REM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Address Notes</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAPICOMREM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Notes on Communication Types</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ADDRESSDUPLICATES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Relationship Address Duplicates</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Messages</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_BUPR_RELATIONSHIP_CREATE</FUNCNAME>
+     <SHORT_TEXT>Create BP Relationship</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>BUSINESSPARTNER1</PARAMETER>
+       <DBFIELD>BAPIBUS1006_HEAD-BPARTNER</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>BUSINESSPARTNER2</PARAMETER>
+       <DBFIELD>BAPIBUS1006_HEAD-BPARTNER</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RELATIONSHIPCATEGORY</PARAMETER>
+       <DBFIELD>BUT050-RELTYP</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RELATIONSHIPTYPE</PARAMETER>
+       <DBFIELD>BUT050-RELKIND</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VALIDFROMDATE</PARAMETER>
+       <DEFAULT>SY-DATLO</DEFAULT>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_HEADER-VALIDFROMDATE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VALIDUNTILDATE</PARAMETER>
+       <DEFAULT>&apos;99991231&apos;</DEFAULT>
+       <TYPES>O</TYPES>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIBUS1006002_HEADER-VALIDUNTILDATE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DIFFERENTIATIONTYPEVALUE</PARAMETER>
+       <DBFIELD>BUT050-DFTVAL</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>XDFREL</PARAMETER>
+       <DBFIELD>BUT050-XDFREL</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>BUSINESSPARTNER1</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Partner Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSINESSPARTNER2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Partner Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RELATIONSHIPCATEGORY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Partner Relationship Category</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RELATIONSHIPTYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business partner relationship type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALIDFROMDATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Validity Date (Valid From)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALIDUNTILDATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Validity Date (Valid To)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DIFFERENTIATIONTYPEVALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BP: Differentiation type characteristic (change doc.-rel.)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>XDFREL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Standard Relationship</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character Field of Length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Parameter</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_COSTACTPLN_POSTPRIMCOST</FUNCNAME>
+     <SHORT_TEXT>Costs and Activity Type Planning for Data Migration</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>HEADERINFO</PARAMETER>
+       <TYP>BAPIPLNHDR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DELTA</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPI6031_CTRLDATA-DELTA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>INDEXSTRUCTURE</PARAMETER>
+       <DBSTRUCT>BAPIACPSTRU</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>COOBJECT</PARAMETER>
+       <DBSTRUCT>BAPIPCPOBJ</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PERVALUE</PARAMETER>
+       <DBSTRUCT>BAPIPCPVAL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TOTVALUE</PARAMETER>
+       <DBSTRUCT>BAPIPCPTOT</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>CONTRL</PARAMETER>
+       <DBSTRUCT>BAPIPCPCTRL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>HEADERINFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Header Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DELTA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Indicator: Add up New and Existing Values</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Simulation Parameter</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INDEXSTRUCTURE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Assignment of Objects, Values and Control Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>COOBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Object List (Cost Center/Activity Type or Business Process)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PERVALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Plan Values Per Period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TOTVALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Plan Values Per Fiscal Year and Distribution Key</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTRL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Control Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Error Messages</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_FKK_CM_DUNNING_DATA_CREATE</FUNCNAME>
+     <SHORT_TEXT>Create Dunning History - Dunning by Collection Strategy</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_COLLDUNNHEADER</PARAMETER>
+       <TYP>FKKCMMIG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_ITEMS</PARAMETER>
+       <DBSTRUCT>FKKOP</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_REDUCTIONS</PARAMETER>
+       <DBSTRUCT>FKKMARED</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_COLLDUNNHEADER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Migration of Dunning by Collection Strategy</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Simulation Parameter</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ITEMS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Partner Items in Contract Account Document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_REDUCTIONS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Dunning: Structure for Dunning Reductions</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Parameter</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZFI_RFC_CREATE_TEXT_V2</FUNCNAME>
+     <SHORT_TEXT>Create Long Text through RFC</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>TEXT_LINES</PARAMETER>
+       <DBSTRUCT>IBIPTEXTLN</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>MESSAGES</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TEXT_LINES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>IBIP: Long text line with logical key</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Parameter</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

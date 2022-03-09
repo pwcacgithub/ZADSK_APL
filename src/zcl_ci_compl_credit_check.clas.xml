@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CI Compliance &amp; Credit Check for BIP</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>CALC_TODATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculate next date based on billing cycle</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>COMPLIANCE_CHECK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Compliance check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>COMPLIANCE_CHECK_EMAIL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Send Email for Compliance check failure</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>CREDIT_CHECK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Credit Check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>DO_RELEASE_BILLPLAN_LOCKS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Release Billplan lock</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>GET_RISK_CLASS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get risk class of customer</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>IS_BIPITEM_COMPLIANCE_LOCKED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is Bill Plan Item Compliance Locked</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>LOCK_BILLPLAN_ITEM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lock the Bill plan item</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_CI_COMPL_CREDIT_CHECK</CLSNAME>
+     <CMPNAME>UPDATE_BILLPLAN_BILLING_DATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update custom Billing date on Bill plan Item</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
